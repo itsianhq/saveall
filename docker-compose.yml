@@ -1,0 +1,12 @@
+services:
+  saveall:
+    build: .
+    container_name: saveall
+    ports:
+      - "8000:8000"
+    environment:
+      # true = also keep a copy of every download in ./downloads
+      - KEEP_FILES=false
+    volumes:
+      - ./downloads:/downloads
+    restart: unless-stopped
